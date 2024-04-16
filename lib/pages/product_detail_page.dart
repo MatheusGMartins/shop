@@ -15,7 +15,7 @@ class ProductDetailPage extends StatelessWidget {
         title: SizedBox(
           width: MediaQuery.of(context).size.width * 0.65,
           child: Text(
-            product.title,
+            product.name,
             textAlign: TextAlign.center,
           ),
         ),
