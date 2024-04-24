@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/components/badgee.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/cart.dart';
+import 'package:shop/utils/app_routes.dart';
 
 enum FilterOption {
   Favorite,
@@ -55,7 +56,9 @@ class _ProductosOverviewPageState extends State<ProductosOverviewPage> {
           ),
           Consumer<Cart>(
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.cart);
+                },
                 icon: const Icon(Icons.shopping_cart),
               ),
             builder: (ctx, cart, child) =>  Bagdee(
