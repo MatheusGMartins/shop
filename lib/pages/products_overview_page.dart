@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/components/app_drawer.dart';
 import 'package:shop/components/badgee.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/cart.dart';
@@ -56,19 +57,18 @@ class _ProductosOverviewPageState extends State<ProductosOverviewPage> {
           ),
           Consumer<Cart>(
             child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.cart);
-                },
-                icon: const Icon(Icons.shopping_cart),
-              ),
-            builder: (ctx, cart, child) =>  Bagdee(
-              value: cart.itemsCount.toString(),
-              child: child!
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.cart);
+              },
+              icon: const Icon(Icons.shopping_cart),
             ),
+            builder: (ctx, cart, child) =>
+                Bagdee(value: cart.itemsCount.toString(), child: child!),
           )
         ],
       ),
       body: ProductGrid(_showFavoriteOnly),
+      drawer: const AppDrawer(),
     );
   }
 }
